@@ -53,7 +53,8 @@
     "serve": "cross-env NODE_ENV=production vitepress serve .docs --host",
     "lint": "eslint src/**/*.ts",
     "lint-fix": "pnpm lint --fix",
-    "release": "np"
+    "release": "np",
+    "postinstall": "npm run build"
   },
   "publishConfig": {
     "access": "public",
