@@ -84,7 +84,10 @@ export const VueDraggable = defineComponent<IProps>({
     prop: 'modelValue',
     event: 'update:modelValue'
   },
-  props: props as unknown as any,
+  props: [
+    ...(props as unknown as any),
+    'options',
+  ],
   emits: ['update:modelValue', ...emits],
   setup(props, { slots, emit, expose }) {
     const attrs = useAttrs()
@@ -103,9 +106,12 @@ export const VueDraggable = defineComponent<IProps>({
         if (newValue !== undefined) acc[key] = newValue
         return acc
       }, {} as any)
+      const {options} = toRefs(['options']);
+
       return {
         ...events,
-        ...objectMap({ ...attrs, ...opt })
+        ...objectMap({ ...attrs, ...opt }),
+        ...options,
       }
     })
 
