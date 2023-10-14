@@ -54,7 +54,7 @@
     "lint": "eslint src/**/*.ts",
     "lint-fix": "pnpm lint --fix",
     "release": "np",
-    "postinstall": "npm run build"
+    "prepare": "npm run build"
   },
   "publishConfig": {
     "access": "public",
